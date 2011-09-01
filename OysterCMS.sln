@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OysterCMS.Db.MongoDB", "OysterCMS.Db.MongoDB\OysterCMS.Db.MongoDB.csproj", "{86F221AF-3274-4BC8-9569-9F0EA23BAFDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OysterCMS.Templates", "OysterCMS.Templates\OysterCMS.Templates.csproj", "{3574F609-8AFD-4F01-951C-1EAE75B00B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OysterCMS", "OysterCMS\OysterCMS.csproj", "{13AA1602-4B31-424B-9F88-DBBA7412BDF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86F221AF-3274-4BC8-9569-9F0EA23BAFDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F221AF-3274-4BC8-9569-9F0EA23BAFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F221AF-3274-4BC8-9569-9F0EA23BAFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F221AF-3274-4BC8-9569-9F0EA23BAFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3574F609-8AFD-4F01-951C-1EAE75B00B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3574F609-8AFD-4F01-951C-1EAE75B00B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3574F609-8AFD-4F01-951C-1EAE75B00B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3574F609-8AFD-4F01-951C-1EAE75B00B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13AA1602-4B31-424B-9F88-DBBA7412BDF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AA1602-4B31-424B-9F88-DBBA7412BDF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AA1602-4B31-424B-9F88-DBBA7412BDF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13AA1602-4B31-424B-9F88-DBBA7412BDF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

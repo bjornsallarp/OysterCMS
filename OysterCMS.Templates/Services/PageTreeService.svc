@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="OysterCMS.Templates.Services.PageTreeService" CodeBehind="PageTreeService.svc.cs"  %>
