@@ -39,7 +39,7 @@
                         // call `.jstree` with the options object
 		                .jstree({
 		                    // the `plugins` array allows you to configure the active plugins on this instance
-		                    "plugins": ["themes", "json_data", "ui", "crrm", "hotkeys"],
+		                    "plugins": ["themes", "json_data", "ui", "crrm", "hotkeys", "contextmenu"],
 		                    // each plugin you have included can have its own config object
 		                    "core": { "initially_open": ["phtml_1"] },
 		                    // it makes sense to configure a plugin only if overriding the defaults
@@ -47,6 +47,23 @@
 		                        "theme": "default",
 		                        "dots": true,
 		                        "icons": false
+		                    },
+		                    "contextmenu": {
+		                        items: {
+		                            "rename": {
+		                                // The item label
+		                                "label": "Rename",
+		                                // The function to execute upon a click
+		                                "action": function (obj) { alert('hejsan'); },
+		                                // All below are optional 
+		                                "_disabled": false, 	// clicking the item won't do a thing
+		                                "_class": "class", // class is applied to the item LI node
+		                                "separator_before": false, // Insert a separator before the item
+		                                "separator_after": true, 	// Insert a separator after the item
+		                                // false or string - if does not contain `/` - used as classname
+		                                "icon": false
+		                            }
+		                        }
 		                    },
 		                    "json_data": {
 		                        // This tree is ajax enabled - as this is most common, and maybe a bit more complex
@@ -58,15 +75,24 @@
 		                            type: "POST",
 		                            contentType: "application/json",
 		                            success: function (pages) {
-		                                pages[0]["children"] = [{ data: 'child', state: 'closed' }];
+		                                if (pages) {
+		                                    for (var i = 0; i < pages.length; i++) {
+		                                        pages[i]['attr'] = { id: pages[i].Id };
+		                                    }
+		                                }
 		                                return pages;
 		                            },
 		                            // the `data` function is executed in the instance's scope
 		                            // the parameter is the node being loaded 
 		                            // (may be -1, 0, or undefined when loading the root nodes)
 		                            data: function (n) {
-		                                // the result is fed to the AJAX request `data` option
-		                                return {};
+
+		                                if (n == undefined || n <= 0) {
+		                                    return {};
+		                                }
+		                                else {
+		                                    return '{ "parent": "' + $(n).attr('id') + '"}';
+		                                }
 		                            }
 		                        }
 		                    }

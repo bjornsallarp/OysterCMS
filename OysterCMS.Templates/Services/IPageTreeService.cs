@@ -22,5 +22,8 @@ namespace OysterCMS.Templates.Services
 
         [DataMember]
         public Guid Id { get; set; }
+
+        [DataMember]
+        public string state { get; set; }
     }
 }

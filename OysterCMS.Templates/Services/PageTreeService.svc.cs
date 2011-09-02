@@ -27,7 +27,8 @@ namespace OysterCMS.Templates.Services
 
             foreach (var page in DataFactory.Instance.FindChildPages<PageTypeBase>(parent))
             {
-                tree.Add(new PageTreeItem() { Id = page.Id, data = page.PageName });
+                bool hasChildren = DataFactory.Instance.FindChildPages<PageTypeBase>(page.Id).Count > 0;
+                tree.Add(new PageTreeItem() { Id = page.Id, data = page.PageName, state = hasChildren ? "closed" : "closed" });
             }
 
             return tree;
