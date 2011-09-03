@@ -16,7 +16,12 @@ namespace OysterCMS
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            PageType page = new PageType() { PageName = "Awesome page", MainHeading = "My fancy heading" };
+            PageType page = null;
+            if (Request.QueryString["createnew"] == null && Request.QueryString["pageid"] != null)
+            {
+                page = DataFactory.Instance.FindPage<PageType>(Guid.Parse(Request.QueryString["pageid"]));
+            }
+
             IEnumerable<PageTypePropertyAttribute> properties = typeof(PageType).PageTypePropertyAttributes().OrderBy(a => a.SortOrder);
 
             int insertIndex = 0;
@@ -29,7 +34,12 @@ namespace OysterCMS
                 
                 PropertyControl c = Activator.CreateInstance(attr.PropertyType) as PropertyControl;
                 c.PopulateFromAttributeSettings(attr);
-                c.Value = typeof(PageType).GetProperty(attr.PropertyName).GetValue(page, null) as string;
+
+                if (page != null)
+                {
+                    c.Value = typeof(PageType).GetProperty(attr.PropertyName).GetValue(page, null) as string;
+                }
+                
                 myEditControls.Add(c);
                 c.CreateChildControls(row.Cells[1]);
 
@@ -49,7 +59,7 @@ namespace OysterCMS
         {
             PageType t = new PageType();
             t.Created = t.Updated = DateTime.Now;
-            t.ParentId = Guid.Empty;
+            t.ParentId = Request.QueryString["pageid"] != null ? Guid.Parse(Request.QueryString["pageid"]) : Guid.Empty;
             
             Type typeInfo = t.GetType();
             foreach (PropertyControl ctrl in myEditControls)
