@@ -14,6 +14,7 @@
     <AssemblyName>OysterCMS.Templates</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,11 +57,16 @@
     <Content Include="css\edit.css" />
     <Content Include="css\twitter-bootstrap\bootstrap-1.1.1.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Scripts\edit-page.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Scripts\jsTree\jquery.jstree.js" />
     <Content Include="Scripts\page-tree.js" />
+    <Content Include="Scripts\tinymce\jquery.tinymce.js" />
+    <Content Include="Scripts\tinymce\tiny_mce.js" />
+    <Content Include="Scripts\tinymce\tiny_mce_popup.js" />
+    <Content Include="Scripts\tinymce\tiny_mce_src.js" />
     <Content Include="Services\PageTreeService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

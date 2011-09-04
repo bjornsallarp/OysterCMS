@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OysterCMS._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OysterCMS._Default" ValidateRequest="false"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +18,13 @@
     <link href="/css/edit.css" rel="stylesheet">
 
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+      <script src="Scripts/tinymce/jquery.tinymce.js" type="text/javascript"></script>
       <script src="Scripts/jsTree/jquery.jstree.js" type="text/javascript"></script>
       <script src="Scripts/jsTree/_lib/jquery.cookie.js" type="text/javascript"></script>
       <script src="Scripts/jsTree/_lib/jquery.hotkeys.js" type="text/javascript"></script>
+
       <script src="Scripts/page-tree.js" type="text/javascript"></script>
+      <script src="Scripts/edit-page.js" type="text/javascript"></script>
   </head>
 
   <body>

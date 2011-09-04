@@ -17,7 +17,7 @@ namespace OysterCMS.PropertyControls
             inputBox.ClientIDMode = System.Web.UI.ClientIDMode.Static;
             inputBox.Text = Value as string;
 
-            inputBox.CssClass = "slasktratt";
+            inputBox.CssClass = "xhtmledit";
 
             container.Controls.Add(inputBox);
         }

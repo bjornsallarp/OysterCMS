@@ -18,5 +18,8 @@ namespace OysterCMS
 
         [PageTypeProperty(EditCaption = "Name of the page editor", SortOrder = 4, PropertyType = typeof(PropertyTextBoxControl))]
         public string EditorName { get; set; }
+
+        [PageTypeProperty(EditCaption = "Edit body", SortOrder = 5, PropertyType = typeof(PropertyXhtmlControl))]
+        public string EditorBody { get; set; }
     }
 }
