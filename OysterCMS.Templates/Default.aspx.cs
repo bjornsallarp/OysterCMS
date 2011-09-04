@@ -57,21 +57,36 @@ namespace OysterCMS
 
         void btn_Save_Click(object sender, EventArgs e)
         {
-            PageType t = new PageType();
-            t.Created = t.Updated = DateTime.Now;
-            t.ParentId = Request.QueryString["pageid"] != null ? Guid.Parse(Request.QueryString["pageid"]) : Guid.Empty;
+            PageType page = null;
+
+            if (Request.QueryString["createnew"] == null && Request.QueryString["pageid"] != null)
+            {
+                page = DataFactory.Instance.FindPage<PageType>(Guid.Parse(Request.QueryString["pageid"]));
+            }
+            else
+            {
+                page = new PageType();
+                page.Created = DateTime.Now;
+                page.ParentId = Request.QueryString["pageid"] != null ? Guid.Parse(Request.QueryString["pageid"]) : Guid.Empty;
+            }
+
+            page.Updated = DateTime.Now; 
+
             
-            Type typeInfo = t.GetType();
+            Type typeInfo = page.GetType();
             foreach (PropertyControl ctrl in myEditControls)
             {
                 PropertyInfo info =  typeInfo.GetProperty(ctrl.PropertyName);
                 if(info != null) 
                 {
-                    info.SetValue(t, ctrl.Value, null);
+                    info.SetValue(page, ctrl.Value, null);
                 }
             }
 
-            DataFactory.Instance.AddPage(t);
+            if (page.Id == Guid.Empty)
+                DataFactory.Instance.AddPage(page);
+            else
+                DataFactory.Instance.UpdatePage<PageType>(page);
         }
     }
 }

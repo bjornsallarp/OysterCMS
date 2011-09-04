@@ -60,6 +60,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Scripts\jsTree\jquery.jstree.js" />
+    <Content Include="Scripts\page-tree.js" />
     <Content Include="Services\PageTreeService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

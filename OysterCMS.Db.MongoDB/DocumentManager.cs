@@ -22,7 +22,7 @@ namespace OysterCMS.Templates.Db.MongoDB
             db = server.GetDatabase("OysterCMS");
 
             // Register the page type baseclass and map the id property.
-            BsonClassMap.RegisterClassMap<PageTypeBase>(cm => { cm.AutoMap(); cm.MapIdProperty("Id"); });
+            BsonClassMap.RegisterClassMap<PageTypeBase>(cm => { cm.SetIsRootClass(true); cm.AutoMap(); cm.MapIdProperty("Id"); });
 
             // In order for serialization to work properly all objects that inherit PageTypeBase must be mapped, otherwise
             // they cannot be deserialized complaining that the abstract baseclass cannot be instanciated
@@ -65,7 +65,7 @@ namespace OysterCMS.Templates.Db.MongoDB
 
         public void UpdatePage<T>(T modifiedPage) where T : PageTypeBase
         {
-            db.GetCollection(PAGECOLLECTION).Save(modifiedPage);
+            db.GetCollection<T>(PAGECOLLECTION).Save(modifiedPage);
         }
 
         public bool DeletePage(Guid pageId)
