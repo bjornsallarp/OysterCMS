@@ -14,14 +14,17 @@ namespace OysterCMS.PropertyControls
         public string EditCaption { get; set; }
         public string EditDescription { get; set; }
         public abstract object Value { get; set; }
+        public Type PageType { get; set; }
 
-        public virtual void PopulateFromAttributeSettings(PageTypePropertyAttribute settings)
+        public virtual void PopulateFromAttributeSettings(PageTypePropertyAttribute settings, Type pageType)
         {
             this.PropertyName = settings.PropertyName;
             this.EditCaption = settings.EditCaption;
             this.EditDescription = settings.EditDescription;
+            this.PageType = PageType;
         }
 
         public abstract void CreateChildControls(Control container);
+        public abstract string InputControlId { get; }
     }
 }

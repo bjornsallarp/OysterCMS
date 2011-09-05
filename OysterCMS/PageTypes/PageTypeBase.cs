@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.UI.WebControls;
 using OysterCMS.PropertyControls;
+using System.ComponentModel.DataAnnotations;
 
 namespace OysterCMS.PageTypes
 {
@@ -39,6 +40,7 @@ namespace OysterCMS.PageTypes
             SortOrder = 1, 
             PropertyType = typeof(PropertyTextBoxControl))
         ]
+        [Required(ErrorMessage = "A page must have a name!", AllowEmptyStrings = false)]
         public string PageName { get; set; }
     }
 }

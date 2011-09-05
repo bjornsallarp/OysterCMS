@@ -27,5 +27,10 @@ namespace OysterCMS.PropertyControls
             get { return inputBox.Text; }
             set { inputBox.Text = value == null ? string.Empty : value.ToString(); }
         }
+
+        public override string InputControlId
+        {
+            get { return inputBox.ID; }
+        }
     }
 }

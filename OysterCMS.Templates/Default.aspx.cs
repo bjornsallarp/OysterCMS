@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Reflection;
 using OysterCMS.PageTypes;
 using OysterCMS.PropertyControls;
+using OysterCMS.Templates.Validation;
+using OysterCMS.Templates.Extensions;
 
 namespace OysterCMS
 {
@@ -33,7 +35,7 @@ namespace OysterCMS
                 EditControls.Rows.AddAt(insertIndex, row);
                 
                 PropertyControl c = Activator.CreateInstance(attr.PropertyType) as PropertyControl;
-                c.PopulateFromAttributeSettings(attr);
+                c.PopulateFromAttributeSettings(attr, typeof(PageType));
 
                 if (page != null)
                 {
@@ -41,7 +43,22 @@ namespace OysterCMS
                 }
                 
                 myEditControls.Add(c);
+                c.ID = Guid.NewGuid().ToString();
                 c.CreateChildControls(row.Cells[1]);
+
+                // Add validators if the property has been decorated with validators
+                if (typeof(PageType).HasValidationAttributes(attr.PropertyName))
+                {
+                    DataAnnotationValidator validator = new DataAnnotationValidator()
+                    {
+                        ControlToValidate = c.InputControlId,
+                        PropertyName = attr.PropertyName,
+                        SourceType = typeof(PageType),
+                        Text = "*",
+                        CssClass = "validation-error"
+                    };
+                    row.Cells[1].Controls.Add(validator);
+                }
 
                 Label captionLabel = new Label();
                 captionLabel.Text = c.EditCaption;
@@ -57,6 +74,9 @@ namespace OysterCMS
 
         void btn_Save_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid)
+                return;
+
             PageType page = null;
 
             if (Request.QueryString["createnew"] == null && Request.QueryString["pageid"] != null)

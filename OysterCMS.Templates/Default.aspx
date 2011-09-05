@@ -38,6 +38,7 @@
             </div>
             <div class="span12">
                 <asp:Label runat="server" ID="lbl_Heading" />
+                <asp:ValidationSummary ID="validationSummary" runat="server" DisplayMode="BulletList" />
                 <asp:Table runat="server" ID="EditControls">
                     <asp:TableFooterRow>
                         <asp:TableCell ColumnSpan="2" CssClass="text-right">
