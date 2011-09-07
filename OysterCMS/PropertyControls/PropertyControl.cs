@@ -21,7 +21,7 @@ namespace OysterCMS.PropertyControls
             this.PropertyName = settings.PropertyName;
             this.EditCaption = settings.EditCaption;
             this.EditDescription = settings.EditDescription;
-            this.PageType = PageType;
+            this.PageType = pageType;
         }
 
         public abstract void CreateChildControls(Control container);
