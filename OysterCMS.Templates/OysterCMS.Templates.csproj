@@ -101,7 +101,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="PageType.cs" />
+    <Compile Include="NormalPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IPageTreeService.cs" />
     <Compile Include="Services\PageTreeService.svc.cs">
