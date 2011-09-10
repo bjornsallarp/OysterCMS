@@ -49,6 +49,9 @@
     <Compile Include="Initialization\Global.cs" />
     <Compile Include="Initialization\InitializationEngine.cs" />
     <Compile Include="Initialization\PreLoader.cs" />
+    <Compile Include="OysterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="PropertyControls\PropertyNumberControl.cs" />
     <Compile Include="PropertyControls\PropertyTextBoxControl.cs" />
     <Compile Include="PropertyControls\PropertyControl.cs" />

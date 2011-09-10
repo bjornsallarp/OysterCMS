@@ -1,0 +1,37 @@
+﻿#masthead, #footer {
+    background-color: #049CD9;
+    background-image: -moz-linear-gradient(#004D9F, #049CD9);
+    background-repeat: no-repeat;
+}
+#masthead div.inner, #footer div.inner {
+    -moz-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) inset;
+    background: url("http://twitter.github.com/bootstrap/assets/img/grid-18px.png") repeat scroll center top transparent;
+    padding: 45px 0;
+}
+#masthead h1, #footer h1, #masthead p, #footer p {
+    color: #FFFFFF;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+#masthead p a, #footer p a {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#masthead h1, #masthead p {
+    margin-bottom: 9px;
+    text-align: center;
+}
+#masthead h1 {
+    font-size: 54px;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+#masthead p {
+    font-weight: 300;
+}
+#masthead p.lead {
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.body { margin-top: 40px; }

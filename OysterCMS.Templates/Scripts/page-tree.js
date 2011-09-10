@@ -28,7 +28,7 @@
                     },
                     "create": {
                         "label": "Create new page",
-                        "action": function (obj) { window.location = '/?createnew=1&pageid=' + $(obj).attr('id'); },
+                        "action": function (obj) { window.location = '/EditMode/?createnew=1&pageid=' + $(obj).attr('id'); },
                         "_disabled": false,
                         "_class": "class",
                         "separator_before": false, // Insert a separator before the item
@@ -65,7 +65,7 @@
         }
     })
     .bind("select_node.jstree", function (e, data) {
-        window.location = '/?pageid=' + data.rslt.obj.attr('id');
+        window.location = '/EditMode/?pageid=' + data.rslt.obj.attr('id');
     })
     .bind("loaded.jstree", function (event, data) {
     });

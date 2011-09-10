@@ -56,8 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\edit.css" />
+    <Content Include="css\page.css" />
     <Content Include="css\twitter-bootstrap\bootstrap-1.1.1.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EditMode\Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\edit-page.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -82,10 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditMode\Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="EditMode\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Extensions\TypeExtensions.cs" />
