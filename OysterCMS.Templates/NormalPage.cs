@@ -21,5 +21,9 @@ namespace OysterCMS
 
         [PageTypeProperty(EditCaption = "Edit body", SortOrder = 5, PropertyType = typeof(PropertyXhtmlControl))]
         public string EditorBody { get; set; }
+
+        [AllowedPropertyValues("Red", "Green", "Blue")]
+        [PageTypeProperty(EditCaption = "Choose color", SortOrder = 6, PropertyType = typeof(PropertyDropDownListControl))]
+        public string EditorChooseColor { get; set; }
     }
 }
