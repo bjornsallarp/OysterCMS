@@ -43,6 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataFactory.cs" />
+    <Compile Include="HyperPropertyDescriptor\ChainingPropertyDescriptor.cs" />
+    <Compile Include="HyperPropertyDescriptor\HyperTypeDescriptionProvider.cs" />
+    <Compile Include="HyperPropertyDescriptor\HyperTypeDescriptor.cs" />
+    <Compile Include="Initialization\Global.cs" />
+    <Compile Include="Initialization\InitializationEngine.cs" />
+    <Compile Include="Initialization\PreLoader.cs" />
     <Compile Include="PropertyControls\PropertyNumberControl.cs" />
     <Compile Include="PropertyControls\PropertyTextBoxControl.cs" />
     <Compile Include="PropertyControls\PropertyControl.cs" />
