@@ -8,7 +8,7 @@ using OysterCMS.PropertyControls;
 
 namespace OysterCMS
 {
-    public class PageType : PageTypeBase
+    public class NormalPage : PageTypeBase
     {
         [PageTypeProperty(EditCaption = "Caption", SortOrder = 2, PropertyType = typeof(PropertyTextBoxControl))]
         public string MainHeading { get; set; }

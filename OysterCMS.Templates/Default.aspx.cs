@@ -18,13 +18,13 @@ namespace OysterCMS
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            PageType page = null;
+            NormalPage page = null;
             if (Request.QueryString["createnew"] == null && Request.QueryString["pageid"] != null)
             {
-                page = DataFactory.Instance.FindPage<PageType>(Guid.Parse(Request.QueryString["pageid"]));
+                page = DataFactory.Instance.FindPage<NormalPage>(Guid.Parse(Request.QueryString["pageid"]));
             }
 
-            IEnumerable<PageTypePropertyAttribute> properties = typeof(PageType).PageTypePropertyAttributes().OrderBy(a => a.SortOrder);
+            IEnumerable<PageTypePropertyAttribute> properties = typeof(NormalPage).PageTypePropertyAttributes().OrderBy(a => a.SortOrder);
 
             int insertIndex = 0;
             foreach (PageTypePropertyAttribute attr in properties)
@@ -35,11 +35,11 @@ namespace OysterCMS
                 EditControls.Rows.AddAt(insertIndex, row);
                 
                 PropertyControl c = Activator.CreateInstance(attr.PropertyType) as PropertyControl;
-                c.PopulateFromAttributeSettings(attr, typeof(PageType));
+                c.PopulateFromAttributeSettings(attr, typeof(NormalPage));
 
                 if (page != null)
                 {
-                    c.Value = typeof(PageType).GetProperty(attr.PropertyName).GetValue(page, null) as string;
+                    c.Value = typeof(NormalPage).GetProperty(attr.PropertyName).GetValue(page, null) as string;
                 }
                 
                 myEditControls.Add(c);
@@ -47,13 +47,13 @@ namespace OysterCMS
                 c.CreateChildControls(row.Cells[1]);
 
                 // Add validators if the property has been decorated with validators
-                if (typeof(PageType).HasValidationAttributes(attr.PropertyName))
+                if (typeof(NormalPage).HasValidationAttributes(attr.PropertyName))
                 {
                     DataAnnotationValidator validator = new DataAnnotationValidator()
                     {
                         ControlToValidate = c.InputControlId,
                         PropertyName = attr.PropertyName,
-                        SourceType = typeof(PageType),
+                        SourceType = typeof(NormalPage),
                         Text = "*",
                         CssClass = "validation-error"
                     };
@@ -77,15 +77,15 @@ namespace OysterCMS
             if (!Page.IsValid)
                 return;
 
-            PageType page = null;
+            NormalPage page = null;
 
             if (Request.QueryString["createnew"] == null && Request.QueryString["pageid"] != null)
             {
-                page = DataFactory.Instance.FindPage<PageType>(Guid.Parse(Request.QueryString["pageid"]));
+                page = DataFactory.Instance.FindPage<NormalPage>(Guid.Parse(Request.QueryString["pageid"]));
             }
             else
             {
-                page = new PageType();
+                page = new NormalPage();
                 page.Created = DateTime.Now;
                 page.ParentId = Request.QueryString["pageid"] != null ? Guid.Parse(Request.QueryString["pageid"]) : Guid.Empty;
             }
@@ -106,7 +106,7 @@ namespace OysterCMS
             if (page.Id == Guid.Empty)
                 DataFactory.Instance.AddPage(page);
             else
-                DataFactory.Instance.UpdatePage<PageType>(page);
+                DataFactory.Instance.UpdatePage<NormalPage>(page);
         }
     }
 }
