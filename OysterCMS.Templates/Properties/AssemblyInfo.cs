@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OysterCMS")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Oyster CMS")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("NONE")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("OysterCMS")]
 [assembly: AssemblyCopyright("Copyright © NONE 2011")]
 [assembly: AssemblyTrademark("")]

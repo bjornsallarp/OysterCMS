@@ -53,6 +53,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PageTypes\AllowedValuesPropertyAttribute.cs" />
+    <Compile Include="PageTypes\PageTypeClassAttribute.cs" />
     <Compile Include="PropertyControls\PropertyDropDownListControl.cs" />
     <Compile Include="PropertyControls\PropertyNumberControl.cs" />
     <Compile Include="PropertyControls\PropertyTextBoxControl.cs" />
