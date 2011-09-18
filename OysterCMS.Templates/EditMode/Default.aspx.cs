@@ -39,7 +39,7 @@ namespace OysterCMS.EditMode
 
                 if (page != null)
                 {
-                    c.Value = typeof(NormalPage).GetProperty(attr.PropertyName).GetValue(page, null) as string;
+                    c.Value = typeof(NormalPage).GetProperty(attr.PropertyName).GetValue(page, null);
                 }
                 
                 myEditControls.Add(c);
